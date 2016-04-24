@@ -1,7 +1,3 @@
-var appData = {};
-var currSumlevel = "county";
-var currLang = "015";
-
 function datafold(json) {
   return json.data.map(function(data){
     return json.headers.reduce(function(obj, header, i){
@@ -10,6 +6,28 @@ function datafold(json) {
     }, {});
   });
 }
+
+// borrowed from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var appData = {};
+var maxResults = 10;
+var currSumlevel = getParameterByName("sumlevel") || "county";
+var currLang = getParameterByName("lang") || "015";
+var sumLevels = [
+  {id:"state",name:"State"},
+  {id:"msa",name:"Metro Area"},
+  {id:"county",name:"County"},
+  {id:"place",name:"City"},
+];
 
 $.get("http://api.datausa.io/attrs/language/", function(langs) {
   langs = datafold(langs);
@@ -24,14 +42,28 @@ $.get("http://api.datausa.io/attrs/language/", function(langs) {
       $("#dd-lang button").text($(e.target).text())
       currLang = $(e.target).attr("data-id");
       updateLang();
+      window.history.pushState({}, '', location.pathname + "?sumlevel="+currSumlevel+"&lang="+currLang);
+      return false;
     })
+    if(l.id === currLang){
+      $(".dropdown#dd-lang button").text(l.name);
+    }
   })
 })
 
-$("#dd-sumlevel .dropdown-menu a").click(function(e){
-  $("#dd-sumlevel button").text($(e.target).text())
-  currSumlevel = $(e.target).attr("data-id");
-  updateLang();
+sumLevels.forEach(function(sl){
+  currentCol = $(".dropdown#dd-sumlevel .dropdown-menu");
+  var slOpt = $('<li><a href="#" data-type="sumlevel" data-id="'+sl.id+'">'+sl.name+'</a></li>').appendTo(currentCol);
+  slOpt.click(function(e){
+    $("#dd-sumlevel button").text($(e.target).text())
+    currSumlevel = $(e.target).attr("data-id");
+    updateLang();
+    window.history.pushState({}, '', location.pathname + "?sumlevel="+currSumlevel+"&lang="+currLang);
+    return false;
+  })
+  if(sl.id === currSumlevel){
+    $(".dropdown#dd-sumlevel button").text(sl.name);
+  }
 })
 
 
@@ -77,7 +109,7 @@ function updateLang(){
     });
 
     speakersPct.forEach(function(speaker, i){
-      if (i >= 5) {
+      if (i >= maxResults) {
         return;
       }
       var geoName = appData.geoNames.filter(function(g) { return g.id === speaker.geo })[0];

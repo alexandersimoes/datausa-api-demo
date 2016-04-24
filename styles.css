@@ -47,12 +47,13 @@ header {
   vertical-align: top;
 }
 .dropdown button {
-    background: #e2785b; /* datausa hilite col */
-    color: #FFFFFF;
-    border: none;
-    margin: 0;
-    padding: 0.4em 0.8em;
-    font-size: 1em;
+  background: #ef6145; /* datausa hilite col */
+  color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
 }
 .dropdown a {
     display: block;
@@ -108,7 +109,7 @@ div.prof {
     flex-grow: 1;
 }
 div.prof.active {
-  border: solid 4px #e2785b; /* datausa hilite col */
+  border: solid 4px #ef6145; /* datausa hilite col */
 }
 div.prof.active:hover:before {
   background-color: rgba(0, 0, 0, 0.5);
