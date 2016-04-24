@@ -42,6 +42,12 @@ div.prof {
     cursor: pointer;
     flex-grow: 1;
 }
+div.prof.active {
+  border: solid 4px #e2785b; /* datausa hilite col */
+}
+div.prof.active:hover:before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 div.prof:before {
     content: "";
     position: absolute;
@@ -52,12 +58,15 @@ div.prof:before {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    -moz-transition: background-color 0.1s;
-    -o-transition: background-color 0.1s;
-    -webkit-transition: background-color 0.1s;
-    transition: background-color 0.1s;
-      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.05) 26%, rgba(0,0,0,0.6) 71%, rgba(0,0,0,0.7) 100%);
+/*    opacity: 1;*/
+/*    -moz-transition: background-color 0.1s;*/
+/*    -o-transition: background-color 0.1s;*/
+/*    -webkit-transition: background-color 0.1s;*/
+/*    transition: background-color 0.1s;*/
+/*    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.05) 26%, rgba(0,0,0,0.6) 71%, rgba(0,0,0,0.7) 100%);*/
+}
+div.prof:hover:before {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 div.prof span {
   position: absolute;
@@ -86,6 +95,11 @@ div.prof span {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+
+.viz h2 {
+  text-align: center;
+  margin: 10px 0 0 0;
 }
 
 .geos {
@@ -163,7 +177,7 @@ div.prof span {
 }
 
 .dropdown button {
-    background: #FF6223;
+    background: #e2785b; /* datausa hilite col */
     color: #FFFFFF;
     border: none;
     margin: 0;

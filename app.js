@@ -81,11 +81,14 @@ function updateLang(langId){
         return;
       }
       var geoName = appData.geoNames.filter(function(g) { return g.id === speaker.geo })[0];
-      $(".geos").append('' +
-      '<div class="prof" style="background-image: url(http://datausa.io/profile/geo/'+speaker.geo+'/img/);">' +
-      '  <a href="http://datausa.io/profile/geo/'+speaker.geo+'" class="explore-title">'+(i+1)+". "+geoName.display_name+'</a>' +
-      '  <span>'+(speaker.pct_speakers*100).toFixed(2)+'%</span>' +
-      '</div>')
+      var prof = $('<div class="prof" style="background-image: url(http://datausa.io/profile/geo/'+speaker.geo+'/img/);">').appendTo('.geos');
+      var profAnchor = $('<a href="#" class="explore-title">'+(i+1)+". "+geoName.display_name+'</a>').appendTo(prof);
+      prof.append('<span>'+(speaker.pct_speakers*100).toFixed(2)+'%</span>');
+      profAnchor.click(function(e){
+        $('.viz h2').text(geoName.display_name);
+        $('.viz iframe').attr('src', 'http://embed.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
+        return false;
+      })
     })
 
   });
