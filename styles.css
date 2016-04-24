@@ -1,0 +1,184 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{margin:.67em 0;font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{height:0;-moz-box-sizing:content-box;box-sizing:content-box}mark{color:#000;background:#ff0}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}
+.box h3{
+	text-align:center;
+	position:relative;
+	top:80px;
+}
+.box {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+	background:#FFF;
+  margin: 10px;
+}
+div.prof {
+/*    -webkit-box-flex: 1 0 300px;
+    -moz-box-flex: 1 0 300px;
+    -webkit-flex: 1 0 300px;
+    -ms-flex: 1 0 300px;
+    flex: 1 0 300px;*/
+/*    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    flex-pack: center;*/
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    flex-align: center;
+/*    height: 200px;*/
+/*    margin: 0 10px 20px;*/
+/*    min-width: 300px;
+    max-width: 400px;*/
+    position: relative;
+    background: #1d1d1d;
+    background-size: cover !important;
+    background-position: center center;
+    cursor: pointer;
+    flex-grow: 1;
+}
+div.prof:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    -moz-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
+    -webkit-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.05) 26%, rgba(0,0,0,0.6) 71%, rgba(0,0,0,0.7) 100%);
+}
+div.prof span {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  color: white;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 17px;
+  font-family: "Pathway Gothic One", sans-serif
+}
+
+.interactive{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.viz, .geos {
+  border: solid 1px blue;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.geos {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  flex-pack: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.explore-title {
+  position: relative;
+  width: 100%;
+  padding: 20% 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    display: none;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    z-index: 99;
+    background: #CCCCCC;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown#dd-lang .dropdown-menu {
+  width: 620px;
+}
+.dropdown .dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+.dropdown button {
+    background: #FF6223;
+    color: #FFFFFF;
+    border: none;
+    margin: 0;
+    padding: 0.4em 0.8em;
+    font-size: 1em;
+}
+
+.dropdown a {
+    display: block;
+    padding: 0.2em 0.8em;
+    text-decoration: none;
+    background: #CCCCCC;
+    color: #333333;
+}
+
+.dropdown a:hover {
+    background: #BBBBBB;
+}

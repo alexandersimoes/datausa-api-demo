@@ -1,0 +1,37 @@
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" media="all" href="styles.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+  <div class="cont">
+    <header>
+      Which 
+      <div class="dropdown" id="dd-sumlevel">
+          <button>County</button>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-id="state">State</a></li>
+            <li><a href="#" data-id="msa">MSA</a></li>
+            <li><a href="#" data-id="county">County</a></li>
+            <li><a href="#" data-id="place">City</a></li>
+          </ul>
+      </div>
+      has the highest share of 
+      <div class="dropdown" id="dd-lang">
+          <button>Portuguese</button>
+          <div class="dropdown-menu">
+          </div>
+      </div>
+      speakers?
+    </header>
+    <div class="interactive">
+      <div class="viz">embeded viz here!</div>
+      
+      <div class="geos"><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US25005/img/);">  <a href="http://datausa.io/profile/geo/05000US25005" class="explore-title">Bristol County, MA</a></div><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US44001/img/);">  <a href="http://datausa.io/profile/geo/05000US44001" class="explore-title">Bristol County, RI</a></div><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US25007/img/);">  <a href="http://datausa.io/profile/geo/05000US25007" class="explore-title">Dukes County, MA</a></div><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US44007/img/);">  <a href="http://datausa.io/profile/geo/05000US44007" class="explore-title">Providence County, RI</a></div><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US25023/img/);">  <a href="http://datausa.io/profile/geo/05000US25023" class="explore-title">Plymouth County, MA</a></div><div class="prof" style="background-image: url(http://datausa.io/profile/geo/05000US34039/img/);">  <a href="http://datausa.io/profile/geo/05000US34039" class="explore-title">Union County, NJ</a></div></div>
+      
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
