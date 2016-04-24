@@ -35,7 +35,7 @@ $("#dd-sumlevel .dropdown-menu a").click(function(e){
 })
 
 
-function updateLang(langId){
+function updateLang(){
   // clear prev state
   $(".geos").html('')
   
@@ -84,12 +84,21 @@ function updateLang(langId){
       var prof = $('<div class="prof" style="background-image: url(http://datausa.io/profile/geo/'+speaker.geo+'/img/);">').appendTo('.geos');
       var profAnchor = $('<a href="#" class="explore-title">'+(i+1)+". "+geoName.display_name+'</a>').appendTo(prof);
       prof.append('<span>'+(speaker.pct_speakers*100).toFixed(2)+'%</span>');
-      profAnchor.click(function(e){
+      prof.click(function(e){
+        $('.prof').removeClass('active')
+        $(this).addClass('active');
         $('.viz h2').text(geoName.display_name);
         $('.viz iframe').attr('src', 'http://embed.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
         return false;
       })
+      // activate first profile link
+      if (i === 0) {
+        prof.addClass('active');
+        prof.click();
+      }
     })
 
   });
 }
+
+updateLang();
