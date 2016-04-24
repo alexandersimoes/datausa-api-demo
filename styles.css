@@ -205,3 +205,12 @@ div.prof span {
   text-align: center;
   text-decoration: none;
 }
+
+footer {
+  width: 600px;
+  margin: 40px auto;
+}
+footer a {
+ color: #ef6145; /* datausa hilite col */
+ text-decoration: none;
+}

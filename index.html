@@ -3,12 +3,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Alexander Simoes" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
   <meta name="description" content="Find out where languages are spoken with the highest concentration in the United States. Data USA API Demo.">
   <meta property="og:site_name" content="Data USA API Demo" />
   <meta property="og:title" content="Language Concentrations by Geography in the United States" />
   <meta property="og:image" content="shareImage.png" />
   <meta property="og:description" content="Find out where languages are spoken with the highest concentration in the United States. Data USA API Demo."/>
+  
+  <title>Data USA API Demo: Language Concentrations by Geography in the United States</title>
   
   <link href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" media="all" href="styles.css" />
@@ -39,6 +42,18 @@
       <div class="geos"></div>
     </div>
   </div>
+  <footer>
+    <h3>About</h3>
+    <p>
+      Learn where in the US a certain language is spoken. Choose a geographic summary level (<a href="?sumlevel=state">state</a>, <a href="?sumlevel=county">county</a>, <a href="?sumlevel=msa">metro area</a> or <a href="?sumlevel=place">city</a>) and language to find out which locations have the highest concentration of speakers.
+    </p>
+    <a href="../">« More Experiments</a>
+    <p>Visualizations / API made possible via <a href="http://datausa.io/">Data USA.</a></p>
+    
+    <p>Please <a href="https://github.com/alexandersimoes/datausa-api-demo">steal this source!</a></p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ximoes" data-hashtags="DataUSA">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>
