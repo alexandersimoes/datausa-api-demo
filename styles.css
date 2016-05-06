@@ -16,6 +16,11 @@ header {
 .dropdown {
     position: relative;
     display: inline-block;
+    outline-style: none;
+}
+.dropdown button:focus {
+    outline-style: none;
+    outline: 0;
 }
 .dropdown .dropdown-menu {
   text-align: left;
@@ -31,7 +36,7 @@ header {
   min-width: 150px;
   font-size: 16px;
 }
-.dropdown:hover .dropdown-menu {
+.dropdown .dropdown-menu.active {
     display: block;
 }
 .dropdown#dd-lang .dropdown-menu {

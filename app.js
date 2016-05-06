@@ -29,6 +29,14 @@ var sumLevels = [
   {id:"place",name:"City"},
 ];
 
+$(".dropdown").click(function(){
+  var isActive = $(this).children(".dropdown-menu").hasClass("active");
+  $(".dropdown-menu").removeClass("active");
+  if(!isActive){
+    $(this).children(".dropdown-menu").addClass("active");
+  }
+})
+
 $.get("http://api.datausa.io/attrs/language/", function(langs) {
   langs = datafold(langs);
   var perCol = Math.ceil((langs.length+1) / 3);
@@ -43,6 +51,7 @@ $.get("http://api.datausa.io/attrs/language/", function(langs) {
       currLang = $(e.target).attr("data-id");
       updateLang();
       window.history.pushState({}, '', location.pathname + "?sumlevel="+currSumlevel+"&lang="+currLang);
+      $(".dropdown-menu").removeClass("active");
       return false;
     })
     if(l.id === currLang){
@@ -59,6 +68,7 @@ sumLevels.forEach(function(sl){
     currSumlevel = $(e.target).attr("data-id");
     updateLang();
     window.history.pushState({}, '', location.pathname + "?sumlevel="+currSumlevel+"&lang="+currLang);
+    $(".dropdown-menu").removeClass("active");
     return false;
   })
   if(sl.id === currSumlevel){
@@ -120,7 +130,7 @@ function updateLang(){
         $('.prof').removeClass('active')
         $(this).addClass('active');
         $('.viz h2').text(geoName.display_name);
-        $('.viz iframe').attr('src', 'http://embed.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
+        $('.viz iframe').attr('src', 'http://cardinal.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
         return false;
       })
       // activate first profile link
