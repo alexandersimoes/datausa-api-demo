@@ -130,7 +130,7 @@ function updateLang(){
         $('.prof').removeClass('active')
         $(this).addClass('active');
         $('.viz h2').text(geoName.display_name);
-        $('.viz iframe').attr('src', 'http://cardinal.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
+        $('.viz iframe').attr('src', 'http://embed.datausa.io/profile/geo/'+speaker.geo+'/demographics/languages?viz=True');
         return false;
       })
       // activate first profile link
